@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, TouchableOpacity, Button } from 'react-native'
+import { View, Text, FlatList, Image, TouchableOpacity, Button, Clipboard } from 'react-native'
 import React from 'react'
 import { useFocusEffect } from '@react-navigation/native';
 import { useState } from 'react';
@@ -38,14 +38,14 @@ export default function MyCouponScreen() {
                     <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1bRzciTEx-kD8yfyjNL4M2BNdiih8gISAIw&usqp=CAU' }} style={{ height: 100, width: 70, backgroundColor: 'rgba(217, 217, 217, 0.23)' }} />
                 </View>
                 <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 14 }}>{item.code}</Text>
+                    <Text selectable={true} style={{ fontWeight: 'bold', fontSize: 14 }}>{item.code}</Text>
                     <Text style={{ fontWeight: 'bold', fontSize: 14 }}>{item.des}</Text>
                     {item.condition && <Text>{item.condition}đ</Text>}
                 </View>
                 </View>
                 <View className='flex flex-col items-end'>
-                    <Text>{moment(item.start_date).format('DD-MM-YYYY')}</Text>
-                    <Text>{moment(item.end_date).format('DD-MM-YYYY')}</Text>
+                    {/* <Text>{moment(item.start_date).format('DD-MM-YYYY')}</Text>
+                    <Text>{moment(item.end_date).format('DD-MM-YYYY')}</Text> */}
                     {item.status === "1" && <Text className=' text-green-500'>Chưa sử dụng</Text>}
                     {item.status === "2" && <Text className=' text-red-500'>Đã sử dụng</Text>}
                 </View>
@@ -54,7 +54,7 @@ export default function MyCouponScreen() {
         </View>
     );
     return (
-        <View className='pt-2'>
+        <View className='pt-2 px-3'>
             <FlatList
                 data={gifts}
                 renderItem={renderItem}

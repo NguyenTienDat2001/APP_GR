@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './Apps/Screens/LoginScreen';
-import PaymentScreen from './Apps/Screens/PaymentScreen';
+import SignupScreen from './Apps/Screens/SignupScreen';
 import HomeScreen from './Apps/Screens/HomeScreen';
 import Tabvavigation from './Apps/Navigations/Tabvavigation';
 import { useEffect } from 'react';
@@ -15,9 +15,9 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Homepage" component={Tabvavigation} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Payment" component={PaymentScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Signup" component={SignupScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Homepage" component={Tabvavigation} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

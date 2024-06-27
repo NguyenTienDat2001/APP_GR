@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 export default function HomeStack() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="UserStack" component={UserScreen} options={{ title: 'Người dùng' }} />
+            <Stack.Screen name="UserStack" component={UserScreen} options={{ title: 'Trang cá nhân' }} />
             <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{ title: 'Thông tin người dùng' }} />
             <Stack.Screen name="RentScreen" component={RentScreen} options={{ title: 'Sách đã thuê' }}  />
             <Stack.Screen name="ChapterScreen" component={ChapterScreen} options={{ title: 'Thông tin truyện' }} />

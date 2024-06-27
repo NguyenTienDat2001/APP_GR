@@ -48,6 +48,7 @@ export default function ProfileScreen() {
                 <View className=' bg-white'>
                     <TextInput
                         value={myname}
+                        editable={false}
                         onChangeText={(e) => {
                             setMyname(e)
                             setIsModified(true)
@@ -58,6 +59,7 @@ export default function ProfileScreen() {
                 <View className=' bg-white'>
                     <TextInput
                         value={email}
+                        editable={false}
                         onChangeText={(e) => {
                             setEmail(e)
                             setIsModified(true)
@@ -68,6 +70,7 @@ export default function ProfileScreen() {
                 <View className=' bg-white'>
                     <TextInput
                         value={address}
+                        editable={false}
                         onChangeText={(e) => {
                             setAddress(e)
                             setIsModified(true)
@@ -75,32 +78,45 @@ export default function ProfileScreen() {
                     />
                 </View>
                 <Text style={{ fontSize: 18 }}>Ngày sinh</Text>
-                {/* <DatePicker date={date} onDateChange={setDate} /> */}
+                <View className='flex flex-row items-center bg-white'>
+                    <TextInput
+                        value={dob}
+                        editable={false}
+                        onChangeText={(e) => {
+                            setDOB(e)
+                            setIsModified(true)
+                        }}
+                    />
+                </View>
                 <Text className=' text-lg'>Giới tính</Text>
                 <View className='flex flex-row items-center bg-white'>
+                    
                     <Text>Nam</Text>
                     <RadioButton
                         value="nam"
+                        disabled
                         status={sex === 'nam' ? 'checked' : 'unchecked'}
                         onPress={() => {
                             setSex('nam')
                             setIsModified(true)
                         }}
                     />
-                    <Text>Nu</Text>
+                    <Text>Nữ</Text>
 
                     <RadioButton
                         value="nu"
+                        disabled
                         status={sex === 'nu' ? 'checked' : 'unchecked'}
                         onPress={() => {
                             setSex('nu')
                             setIsModified(true)
                         }}
                     />
-                    <Text>Khac</Text>
+                    <Text>Khác</Text>
 
                     <RadioButton
                         value="khac"
+                        disabled
                         status={sex === 'khac' ? 'checked' : 'unchecked'}
                         onPress={() => {
                             setSex('khac')
@@ -109,7 +125,7 @@ export default function ProfileScreen() {
                     />
                 </View>
             </View>
-            <Button disabled={!isModified} title='Lưu'></Button>
+            {/* <Button disabled={!isModified} title='Lưu'></Button> */}
         </View>
     )
 }

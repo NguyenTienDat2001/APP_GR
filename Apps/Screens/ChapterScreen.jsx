@@ -56,7 +56,7 @@ const Chapter = () => {
     }));
     return (
         <ScrollView>
-            <View className='flex flex-col justify-center items-center gap-4 mb-4 pt-8' >
+            <View className='flex flex-col justify-center items-center gap-4 mb-4 pt-8 px-3' >
                 <Text className='font-bold text-3xl text-red-400 text-center'>{book}</Text>
                 <View>
                     {selectedChapter && chapters && (
@@ -73,7 +73,7 @@ const Chapter = () => {
                 <SelectList
                     setSelected={(val) => setSelectedChapter(parseInt(val))}
                     data={chapterOptions}
-                    defaultOption={{ key: "1", value: "Chuong 1" }}
+                    defaultOption={{ key: "1", value: "Chương 1" }}
                 />
                 {/* <TouchableOpacity onPress={() => handleChapterChange(1)} style={{ padding: 5 }}>
                     <Text>&gt;</Text>
@@ -83,11 +83,10 @@ const Chapter = () => {
             {/* <Text style={{ fontSize: 16 }}>
                     {chapters.find((chapter) => chapter.chapter_id === selectedChapter)?.description || ''}
                 </Text> */}
-            <View style={{ flex: 1 }}>
+            <View className= 'px-3' style={{ flex: 1 }}>
                 <RenderHtml
                     contentWidth={width}
                     source={{ html: selectedChapterContent }}
-
                     tagsStyles={{
                         p: {
                             lineHeight: 25,

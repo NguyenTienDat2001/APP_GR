@@ -8,9 +8,9 @@ const Stack = createNativeStackNavigator();
 export default function CouponStack() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="CouponStack" component={CouponScreen} options={{ title: 'Coupon' }} />
-            <Stack.Screen name="MyCouponScreen" component={MyCouponScreen} options={{ title: 'My coupon' }} />
-            <Stack.Screen name="GiftScreen" component={GiftScreen} options={{ title: 'Qùa tặng' }}  />
+            <Stack.Screen name="CouponStack" component={CouponScreen} options={{ title: 'Mã giảm giá' }} />
+            <Stack.Screen name="MyCouponScreen" component={MyCouponScreen} options={{ title: 'Mã giảm giá của bạn' }} />
+            <Stack.Screen name="GiftScreen" component={GiftScreen} options={{ title: 'Đổi thưởng' }}  />
         </Stack.Navigator>
 
     );

@@ -6,13 +6,13 @@ export default function CouponScreen() {
     const navigation = useNavigation()
 
     return (
-        <View className='px-5 pt-[40px] flex flex-col gap-3'>
-            <View className=' bg-white pl-3'>
+        <View className='px-3 pt-3 flex flex-col gap-3'>
+            <View className=' bg-white pl-3 rounded-md'>
                 <TouchableOpacity onPress={() => navigation.navigate('GiftScreen')}>
                     <Text className='text-lg'>Đổi thưởng</Text>
                 </TouchableOpacity>
             </View>
-            <View className=' bg-white pl-3'>
+            <View className=' bg-white pl-3 rounded-md'>
                 <TouchableOpacity onPress={() => navigation.navigate('MyCouponScreen')}>
                     <Text className='text-lg'>Coupon của bạn</Text>
                 </TouchableOpacity>

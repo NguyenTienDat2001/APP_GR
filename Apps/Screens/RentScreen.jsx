@@ -30,7 +30,7 @@ export default function RentScreen() {
         }
       };
     const renderItem = ({ item }) => (
-        <View className=' px-1 bg-white mb-2 p-2'>
+        <View className=' px-1 bg-white mb-2 p-2 rounded-md'>
             <TouchableOpacity onPress={() => navigation.navigate('ChapterScreen', { bookId: item.book_id })}>
           <View className='flex flex-row items-center gap-3 px-1'>
             <View>
@@ -48,7 +48,7 @@ export default function RentScreen() {
         </View>
       );
   return (
-    <View className='pt-2'>
+    <View className='pt-2 px-3'>
       <FlatList
             data={books}
             renderItem={renderItem}

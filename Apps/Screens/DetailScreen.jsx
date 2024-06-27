@@ -45,6 +45,29 @@ export default function DetailScreen() {
   const handleIncrement = () => {
     setQuantity((prev) => (parseInt(prev) + 1).toString());
   };
+  const addCart = async (book_id) => {
+    // const user_id = await AsyncStorage.getItem('userId');
+    const token = await AsyncStorage.getItem('token');
+    const formdata = {
+      // user_id: user_id, 
+      book_id: book_id,
+      quantity: parseInt(quantity, 10)
+    };
+
+    console.log('formdata', formdata);
+
+    axios.post(`${Domain.domainUrl}/cart/add`, formdata, {
+      headers: {
+        'Authorization': token
+      },
+    })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
   return (
     <ScrollView className='px-1 py-50'>
       <Text className='mx-auto font-bold text-xl pb-3 pt-3'>{book.name}</Text>
@@ -59,8 +82,7 @@ export default function DetailScreen() {
         <View className='flex items-center gap-0'>
           <View className='flex flex-row items-center py-3'>
             <Text className='text-red-600 font-medium text-lg pr-1 m-0'>{book.sell_price}đ</Text>
-            <Text className='text-gray-600 text-sm pr-1 line-through'>{book.sell_price + 5000}đ</Text>
-            <Text className='text-white text-xs p-0 mr-1 bg-red-600'>15%</Text>
+
           </View>
           <View className='flex flex-row gap-1 items-center justify-center'>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 0 }}>
@@ -72,6 +94,7 @@ export default function DetailScreen() {
               </TouchableOpacity>
               <TextInput className=' flex items-center text-center h-[30px] w-12 bg-gray-100 border-[1px] border-black'
                 defaultValue={quantity}
+                editable={false}
                 onChangeText={handleChange} />
               <TouchableOpacity
                 style={{ height: 30, width: 25, borderRadius: 0, justifyContent: 'center', alignItems: 'center', backgroundColor: 'red' }}
@@ -81,7 +104,7 @@ export default function DetailScreen() {
               </TouchableOpacity>
             </View>
             <View className='flex flex-row'>
-              <TouchableOpacity style={{ height: 30, width: 45, borderRadius: 0, justifyContent: 'center', alignItems: 'center', backgroundColor: 'red' }}>
+              <TouchableOpacity onPress={() => addCart(book.id)} style={{ height: 30, width: 45, borderRadius: 0, justifyContent: 'center', alignItems: 'center', backgroundColor: 'red' }}>
                 <Text style={{ color: 'white' }}>Mua</Text>
               </TouchableOpacity>
             </View>
@@ -98,7 +121,7 @@ export default function DetailScreen() {
             tagsStyles={{
               p: {
                 // overflow: 'hidden',
-                lineHeight: 25, 
+                lineHeight: 25,
                 height: isExpanded ? 'none' : 82,
                 fontSize: 16
               }
@@ -110,7 +133,7 @@ export default function DetailScreen() {
           style={{
             backgroundColor: 'red',
             padding: 5,
-            width: 150, 
+            width: 150,
             alignItems: 'center',
             borderRadius: 5,
           }}

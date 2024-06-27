@@ -33,15 +33,15 @@ export default function OrderDetailScreen() {
                     <Text style={{ width: 200 }}>Tác giả: {item.author}</Text>
                 </View>
                 <View className='flex gap-1 items-center'>
-                    <Text>Giá {item.sell_price}đ</Text>
-                    <Text>Số lượng {item.quantity}</Text>
+                    <Text className='text-red-400 font-bold'>{item.sell_price}đ</Text>
+                    <Text className='font-bold'>Số lượng {item.quantity}</Text>
                 </View>
             </View>
         </View>
     );
     return (
         <View>
-            <View className='px-5 pt-8 pb-10'>
+            <View className='px-3 pt-8 pb-10'>
                 <FlatList
                     data={books}
                     renderItem={renderItem}

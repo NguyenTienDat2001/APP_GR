@@ -33,7 +33,7 @@ export default function LoginScreen({ navigation }) {
     };
    
     const handleSignUp = () => {
-        // Điều hướng tới màn hình đăng ký tài khoản tại đây
+        navigation.replace('Signup')
         console.log('Navigate to Sign Up screen');
     };
     return (

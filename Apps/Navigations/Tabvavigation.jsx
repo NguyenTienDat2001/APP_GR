@@ -7,6 +7,7 @@ import OrderScreen from '../Screens/OrderScreen';
 import CouponScreen from '../Screens/CouponScreen';
 import UserScreen from '../Screens/UserScreen';
 import HomeStack from './HomeStack';
+import CartStack from './CartStack';
 import UserStack from './UserStack';
 import CouponStack from './CouponStack';
 import OrderStack from './OrderStack';
@@ -25,13 +26,13 @@ export default function Tabvavigation() {
           <FontAwesome name="home" size={24} color="grey" />
         )
       }} />
-      <Tab.Screen name="Cart" component={CartScreen} options={{
+      <Tab.Screen name="Cart" component={CartStack} options={{
         tabBarLabel: ({ color }) => (
           <Text style={{ color: color, fontSize: 12, marginBottom: 3 }}>Cart</Text>
         ),
         tabBarIcon: ({ size, color }) => (
           <Entypo name="shopping-cart" size={24} color="grey" />
-        )
+        ),
       }} />
       <Tab.Screen name="Coupon" component={CouponStack} options={{
         tabBarLabel: ({ color }) => (
