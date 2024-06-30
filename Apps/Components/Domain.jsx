@@ -1,4 +1,4 @@
-const domainUrl = 'http://192.168.0.101:8000/api';
+const domainUrl = 'http://103.249.200.192:8000/api';
 export default {
   domainUrl,
 };
